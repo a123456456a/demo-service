@@ -1,0 +1,20 @@
+### 添加用户
+POST http://localhost:3000/user
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "email": "test.qq.com",
+  "password": "123456"
+}
+
+### 修改用户
+PATCH http://localhost:3000/user/1
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "email": "111.qq.com",
+  "age": 18
+}
+
