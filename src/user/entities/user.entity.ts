@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { Rule } from '../../rule/entities/rule.entity';
 
 @Entity()
 export class User {
@@ -10,10 +11,10 @@ export class User {
   email: string;
   @Column()
   password: string;
-  @Column()
-  code: string;
-  @Column({name: 'created_at'})
+  @Column({ name: 'created_at' })
   createdAt: Date;
-  @Column({name: 'updated_at'})
+  @Column({ name: 'updated_at' })
   updatedAt: Date;
+  @OneToMany(() => Rule, (rule) => rule.user)
+  rules: Rule[];
 }

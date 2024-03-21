@@ -1,14 +1,16 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { UserModule } from './user/user.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { RuleModule } from './rule/rule.module';
+import { LoginController } from './login/login.controller';
+import { LoginService } from './login/login.service';
+import { LoginModule } from './login/login.module';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'localhost',
+      host: '127.0.0.1',
       port: 3306,
       username: 'root',
       password: '123456',
@@ -20,9 +22,10 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       autoLoadEntities: true, // 自动加载实体
     }),
     UserModule,
+    RuleModule,
+    LoginModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [LoginController],
+  providers: [LoginService],
 })
-export class AppModule {
-}
+export class AppModule {}
