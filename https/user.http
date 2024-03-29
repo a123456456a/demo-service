@@ -8,13 +8,16 @@ Content-Type: application/json
   "password": "123456"
 }
 
-### 修改用户
-PATCH http://localhost:3000/user/1
+### 获取验证码
+GET http://localhost:3000/login
+
+
+### 登录
+POST http://localhost:3000/login
 Content-Type: application/json
 
 {
-  "name": "John Doe",
-  "email": "111.qq.com",
-  "age": 18
+  "name": "admin",
+  "password": "123456"
 }
 

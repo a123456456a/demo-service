@@ -10,19 +10,12 @@ export class LoginController {
   getSvgCaptcha(@Req() request: Request) {
     const captcha = this.loginService.createCaptcha();
     request.session['captche'] = captcha.text;
-    console.log(request.session['captche']);
     return captcha.data;
   }
 
   @Post()
   login(@Req() request: Request, @Session() session: Record<string, any>) {
     const { username, password, captcha } = request.body;
-    if (captcha.toLocaleLowerCase() !== session.captche.toLocaleLowerCase()) {
-      return '验证码错误';
-    }
-    if (username === 'admin' && password === 'admin') {
-      return '登录成功';
-    }
-    return '用户名或密码错误';
+    return this.loginService.signIn(username, password, captcha, session);
   }
 }

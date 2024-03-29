@@ -13,7 +13,7 @@ export class User {
   password: string;
   @Column({ name: 'created_at' })
   createdAt: Date;
-  @Column({ name: 'updated_at' })
+  @Column({ name: 'updated_at', nullable: true })
   updatedAt: Date;
   @OneToMany(() => Rule, (rule) => rule.user)
   rules: Rule[];
