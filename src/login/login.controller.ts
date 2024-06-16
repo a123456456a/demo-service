@@ -6,10 +6,10 @@ import { Request } from 'express';
 export class LoginController {
   constructor(private readonly loginService: LoginService) {}
 
-  @Get()
+  @Get('captcha')
   getSvgCaptcha(@Req() request: Request) {
     const captcha = this.loginService.createCaptcha();
-    request.session['captche'] = captcha.text;
+    request.session['captcha'] = captcha.text;
     return captcha.data;
   }
 
