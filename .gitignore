@@ -1,57 +1,47 @@
-# compiled output
-/dist
-/node_modules
-/build
-/test
+######################################################################
+# Build Tools
 
-# Logs
-logs
-*.log
-npm-debug.log*
-pnpm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-lerna-debug.log*
+.gradle
+/build/
+!gradle/wrapper/gradle-wrapper.jar
 
-# OS
-.DS_Store
+target/
+!.mvn/wrapper/maven-wrapper.jar
 
-# Tests
-/coverage
-/.nyc_output
+######################################################################
+# IDE
 
-# IDEs and editors
-/.idea
-.project
+### STS ###
+.apt_generated
 .classpath
-.c9/
-*.launch
-.settings/
-*.sublime-workspace
+.factorypath
+.project
+.settings
+.springBeans
 
-# IDE - VSCode
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
 
-# dotenv environment variable files
-.env
-.env.development.local
-.env.test.local
-.env.production.local
-.env.local
+### JRebel ###
+rebel.xml
 
-# temp directory
-.temp
-.tmp
+### NetBeans ###
+nbproject/private/
+build/*
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
 
-# Runtime data
-pids
-*.pid
-*.seed
-*.pid.lock
+######################################################################
+# Others
+*.log
+*.xml.versionsBackup
+*.swp
 
-# Diagnostic reports (https://nodejs.org/api/report.html)
-report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+!*/build/*.java
+!*/build/*.html
+!*/build/*.xml
